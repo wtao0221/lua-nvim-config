@@ -37,3 +37,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         end
     end,
 })
+
+-- vim.lsp.set_log_level("info")
+vim.g.copilot_filetypes = { ["*"]=false, verilog=true}

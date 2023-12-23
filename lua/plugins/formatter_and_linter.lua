@@ -6,6 +6,7 @@ end
 
 lint.linters_by_ft = {
     cpp = {"cpplint"},
+    python = { "pylint" },
 }
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -31,6 +32,7 @@ end
 fmt.setup({
     formatters_by_ft = {
         cpp = { "clang_format" },
+        python = { "black" },
     },
 })
 

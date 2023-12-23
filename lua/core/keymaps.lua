@@ -1,6 +1,8 @@
 vim.g.mapleader = " " -- leader prefix
 
 local keymap = vim.keymap
+local default_opts = { noremap = true, silent = true }
+local expr_opts = { noremap = true, expr = true, silent = true }
 
 -- general keymaps
 
@@ -29,6 +31,7 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+keymap.set("n", "<leader>f", ":NvimTreeFindFileToggle<CR>")
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
@@ -36,3 +39,11 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+
+-- copilot
+keymap.set("i", "<C-A>", "copilot#Accept('<CR>')", { expr = true, replace_keycodes = false, })
+keymap.set("i", "<C-Z>", "<Plug>(copilot-dismiss)")
+keymap.set("i", "<C-O>", "<Plug>(copilot-suggest)")
+keymap.set("i", "<C-H>", "<Plug>(copilot-next)")
+keymap.set("i", "<C-L>", "<Plug>(copilot-previous)")
+
