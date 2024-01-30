@@ -20,6 +20,7 @@ treesitter.setup({
       "bash",
       "lua",
       "vim",
+      "verilog",
       "dockerfile",
       "gitignore",
     },

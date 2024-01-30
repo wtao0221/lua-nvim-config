@@ -45,12 +45,17 @@ lspconfig["clangd"].setup({
     filetypes = { "c", "cpp", "h"}
 })
 
-lspconfig["svlangserver"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
+-- lspconfig["svlangserver"].setup({
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+-- })
 
 lspconfig["pyright"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
+})
+
+lspconfig["verible"].setup({
+    on_attach = on_attach,
+    root_dir = function() return vim.loop.cwd() end
 })
