@@ -45,17 +45,30 @@ lspconfig["clangd"].setup({
     filetypes = { "c", "cpp", "h"}
 })
 
--- lspconfig["svlangserver"].setup({
+-- lspconfig["pyright"].setup({
 --     capabilities = capabilities,
 --     on_attach = on_attach,
 -- })
 
-lspconfig["pyright"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
+lspconfig["pylsp"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = {"python"},
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391'},
+          maxLineLength = 100
+        }
+      }
+    }
+  },
 })
 
 lspconfig["verible"].setup({
+    cmd = {'verible-verilog-ls', '--rules_config_search'},
+    capabilities = capabilites,
     on_attach = on_attach,
     root_dir = function() return vim.loop.cwd() end
 })

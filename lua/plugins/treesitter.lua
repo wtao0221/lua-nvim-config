@@ -23,6 +23,8 @@ treesitter.setup({
       "verilog",
       "dockerfile",
       "gitignore",
+      "c",
+      "cpp",
     },
     -- auto install above language parsers
     auto_install = true,

@@ -29,16 +29,16 @@ return packer.startup(function(use)
 
     -- lua functions that many plugins use
     use("nvim-lua/plenary.nvim")
-
-    use("bluz71/vim-nightfly-guicolors") -- colorschemes
+    -- colorscheme
+    use("bluz71/vim-nightfly-guicolors")
+    -- use("Mofiqul/dracula.nvim") 
+    -- use("folke/tokyonight.nvim")
 
     -- tmux & split window navigation, C-J, C-K navigate
     use("christoomey/vim-tmux-navigator")
 
     use("szw/vim-maximizer")
 
-    use("tpope/vim-surround")
-    use("vim-scripts/ReplaceWithRegister")
 
     -- commenting with gc
     use("numToStr/Comment.nvim")
@@ -73,7 +73,14 @@ return packer.startup(function(use)
     -- configuring lsp servers
     use("neovim/nvim-lspconfig") -- easily configure language servers
     use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-    use("glepnir/lspsaga.nvim")
+    use ({
+        'nvimdev/lspsaga.nvim',
+        after = 'nvim-lspconfig',
+        config = function()
+            require('lspsaga').setup({})
+        end,
+    })
+    -- use("glepnir/lspsaga.nvim")
     -- use({
     --     "glepnir/lspsaga.nvim",
     --     branch = "main",
