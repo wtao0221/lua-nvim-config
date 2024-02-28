@@ -39,6 +39,14 @@ return packer.startup(function(use)
 
     use("szw/vim-maximizer")
 
+    -- treesitter configuration
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = function()
+            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+            ts_update()
+        end,
+    })
 
     -- commenting with gc
     use("numToStr/Comment.nvim")
@@ -95,15 +103,6 @@ return packer.startup(function(use)
     -- formatting & linting
     use("mfussenegger/nvim-lint")
     use("stevearc/conform.nvim")
-
-    -- treesitter configuration
-    use({
-        "nvim-treesitter/nvim-treesitter",
-        run = function()
-            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-            ts_update()
-        end,
-    })
 
     -- auto closing
     use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
