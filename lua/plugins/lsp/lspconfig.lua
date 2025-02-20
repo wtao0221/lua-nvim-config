@@ -69,14 +69,14 @@ lspconfig["pylsp"].setup({
 
 lspconfig["verible"].setup({
     cmd = {'verible-verilog-ls', '--rules_config_search'},
-    capabilities = capabilites,
+    capabilities = capabilities,
     on_attach = on_attach,
     root_dir = function() return vim.loop.cwd() end
 })
 
 lspconfig["gopls"].setup({
     on_attach = on_attach,
-    capabilities = capabilites,
+    capabilities = capabilities,
     cmd = {"gopls"},
     filetypes = {"go", "gomod", "gowork", "gotmpl"},
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
@@ -86,4 +86,9 @@ lspconfig["gopls"].setup({
             usePlaceholders = true,
         },
     },
+})
+
+lspconfig["dockerls"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
 })

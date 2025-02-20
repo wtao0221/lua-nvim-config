@@ -16,6 +16,7 @@ require("plugins.autopair")
 require("plugins.treesitter")
 require("plugins.gitsigns")
 require("plugins.formatter_and_linter")
+require("plugins.aerial")
 
 
 -- ---
