@@ -9,6 +9,9 @@ vim.g.loaded_netrwPlugin = 1
 vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 nvimtree.setup({
+    git = {
+        ignore = false,
+    },
     actions = {
         open_file = {
             window_picker = {

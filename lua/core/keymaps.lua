@@ -29,7 +29,7 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
-keymap.set("n", "<leader>f", ":NvimTreeFindFileToggle<CR>")
+keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>")
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
@@ -45,3 +45,9 @@ keymap.set("i", "<C-O>", "<Plug>(copilot-suggest)")
 keymap.set("i", "<C-H>", "<Plug>(copilot-next)")
 keymap.set("i", "<C-L>", "<Plug>(copilot-previous)")
 
+-- inlay_hint toggle
+keymap.set("n", '<leader>i', 
+    function() 
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({0}),{0}) 
+    end
+)

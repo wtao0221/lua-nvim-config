@@ -43,7 +43,15 @@ local util = require "lspconfig/util"
 lspconfig["clangd"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
-    filetypes = { "c", "cpp", "h"}
+    cmd = { "clangd",
+        "--background-index",
+        "--all-scopes-completion",
+        "--background-index-priority=normal",
+        "-j=192" }
+    -- cmd = { "clangd", "--background-index" },
+    -- cmd = { "clangd", "--compile-commands-dir=." },
+    -- root_dir = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
+    -- filetypes = { "c", "cpp", "h", "hpp"}
 })
 
 -- lspconfig["pyright"].setup({
