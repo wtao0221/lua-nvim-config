@@ -1,32 +1,86 @@
-local setup, lualine = pcall(require, "lualine")
+return {
+	"nvim-lualine/lualine.nvim",
+	config = function()
+		local mode = {
+			"mode",
+			fmt = function(str)
+				return " " .. str
+				-- return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
+			end,
+		}
 
-if not setup then
-    return
-end
+		local filename = {
+			"filename",
+			file_status = true, -- displays file status (readonly status, modified status)
+			path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+		}
 
-local lualine_nightfly = require("lualine.themes.nightfly")
+		local hide_in_width = function()
+			return vim.fn.winwidth(0) > 100
+		end
 
-local new_colors = {
-    blue = "#65D1FF",
-    green = "#3EFFDC",
-    violet = "#FF61EF",
-    yellow = "#FFDA7B",
-    black = "#000000",
+		local diagnostics = {
+			"diagnostics",
+			sources = { "nvim_diagnostic" },
+			sections = { "error", "warn" },
+			symbols = { error = " ", warn = " ", info = " ", hint = " " },
+			colored = false,
+			update_in_insert = false,
+			always_visible = false,
+			cond = hide_in_width,
+		}
+
+		local diff = {
+			"diff",
+			colored = false,
+			symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+			cond = hide_in_width,
+		}
+
+		require("lualine").setup({
+			options = {
+				icons_enabled = true,
+				theme = "nord", -- Set theme based on environment variable
+				-- Some useful glyphs:
+				-- https://www.nerdfonts.com/cheat-sheet
+				--        
+				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
+				disabled_filetypes = { "alpha", "neo-tree" },
+				always_divide_middle = true,
+			},
+			sections = {
+				lualine_a = { mode },
+				lualine_b = { "branch" },
+				lualine_c = {
+					"filename",
+					function()
+						return require("nvim-treesitter").statusline({
+							indicator_size = 70,
+							type_patterns = { "class", "function", "method" },
+							separator = " -> ",
+						})
+					end,
+				},
+				lualine_x = {
+					diagnostics,
+					diff,
+					{ "encoding", cond = hide_in_width },
+					{ "filetype", cond = hide_in_width },
+				},
+				lualine_y = { "location" },
+				lualine_z = { "progress" },
+			},
+			inactive_sections = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = { { "filename", path = 1 } },
+				lualine_x = { { "location", padding = 0 } },
+				lualine_y = {},
+				lualine_z = {},
+			},
+			tabline = {},
+			extensions = { "fugitive" },
+		})
+	end,
 }
-
-lualine_nightfly.normal.a.bg = new_colors.blue
-lualine_nightfly.insert.a.bg = new_colors.green
-lualine_nightfly.visual.a.bg = new_colors.violet
-lualine_nightfly.commond = {
-    a = {
-        gui = "bold",
-        bg = new_colors.yellow,
-        fg = new_colors.black,
-    },
-}
-
-lualine.setup({
-    options = {
-        theme = lualine_nightfly
-    }
-})
