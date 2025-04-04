@@ -6,14 +6,14 @@ opt.number = true
 -- opt.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim. (default: '')
 
 -- tabs
-opt.showtabline = 2 -- Always show tabs (default: 1)
+opt.showtabline = 1 -- Always show tabs (default: 1)
 opt.shiftwidth = 2
 opt.tabstop = 2
 opt.softtabstop = 2 -- Number of spaces that a tab counts for while performing editing operations (default: 0)
 opt.expandtab = true
-opt.autoindent = true
-opt.breakindent = true -- Enable break indent (default: false)
-opt.smartindent = true -- Make indenting smarter again (default: false)
+-- opt.autoindent = true
+-- opt.breakindent = true -- Enable break indent (default: false)
+-- opt.smartindent = true -- Make indenting smarter again (default: false)
 
 -- line wrapping
 opt.wrap = false
