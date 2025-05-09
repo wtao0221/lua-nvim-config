@@ -33,5 +33,6 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true },
 		})
+		vim.cmd([[ autocmd BufRead,BufNewFile *.v set filetype=verilog ]])
 	end,
 }

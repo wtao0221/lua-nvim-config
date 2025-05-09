@@ -273,6 +273,11 @@ return {
 					},
 				},
 			},
+
+			verible = {
+				cmd = { "verible-verilog-ls" },
+				filetypes = { "systemverilog", "verilog" },
+			},
 		}
 
 		-- Ensure the servers and tools above are installed
