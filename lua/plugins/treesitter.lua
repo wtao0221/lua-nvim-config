@@ -34,5 +34,6 @@ return {
 			indent = { enable = true },
 		})
 		vim.cmd([[ autocmd BufRead,BufNewFile *.v set filetype=verilog ]])
+		vim.cmd([[ autocmd BufRead,BufNewFile *.vh set filetype=verilog ]])
 	end,
 }
