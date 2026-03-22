@@ -1,6 +1,7 @@
 return {
 	-- Main LSP Configuration
 	"neovim/nvim-lspconfig",
+	version = "v2.5.0",
 	opts = {
 		inlay_hints = { enabled = true },
 	},
