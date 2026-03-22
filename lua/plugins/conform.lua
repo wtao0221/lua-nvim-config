@@ -20,7 +20,7 @@ return {
 		-- Define your formatters
 		formatters_by_ft = {
 			lua = { "stylua" },
-			go = { "gofumpt", "golines", "goimports-reviser" },
+			-- go = { "gofumpt", "golines", "goimports-reviser" },
 			cpp = { "clang-format" },
 			-- python = { "isort", "black" },
 			-- javascript = { "prettierd", "prettier", stop_after_first = true },

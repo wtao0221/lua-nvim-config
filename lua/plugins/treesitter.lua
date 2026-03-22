@@ -28,6 +28,7 @@ return {
 				"markdown_inline",
 				"bash",
 				"verilog",
+				"jsonnet",
 			},
 			sync_install = false,
 			highlight = { enable = true },
@@ -35,5 +36,6 @@ return {
 		})
 		vim.cmd([[ autocmd BufRead,BufNewFile *.v set filetype=verilog ]])
 		vim.cmd([[ autocmd BufRead,BufNewFile *.vh set filetype=verilog ]])
+		vim.cmd([[ autocmd BufRead,BufNewFile *.jsonnet.TEMPLATE set filetype=jasonnet ]])
 	end,
 }

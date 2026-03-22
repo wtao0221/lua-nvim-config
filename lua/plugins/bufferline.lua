@@ -68,4 +68,5 @@ return {
 	vim.keymap.set("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", { noremap = true, silent = true }),
 	vim.keymap.set("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", { noremap = true, silent = true }),
 	vim.keymap.set("n", "<leader>$", ":BufferLineGoToBuffer -1<CR>", { noremap = true, silent = true }),
+	vim.keymap.set("n", "<leader>bc", ":bdelete<CR>", { desc = "Close current buffer" }),
 }

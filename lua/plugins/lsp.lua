@@ -193,18 +193,19 @@ return {
 				},
 			},
 			gopls = {
+				cmd = { "gopls" },
 				settings = {
 					gopls = {
-						gofumpt = true,
+						["formatting.gofumpt"] = true,
+						["formatting.local"] = "databricks",
 						codelenses = {
 							gc_details = false,
-							generate = true,
-							regenerate_cgo = true,
-							run_govulncheck = true,
-							test = true,
-							tidy = true,
-							upgrade_dependency = true,
-							vendor = true,
+							regenerate_cgo = false,
+							generate = false,
+							test = false,
+							tidy = false,
+							upgrade_dependency = false,
+							vendor = false,
 						},
 						hints = {
 							assignVariableTypes = true,
@@ -215,16 +216,26 @@ return {
 							parameterNames = true,
 							rangeVariableTypes = true,
 						},
-						analyses = {
-							nilness = true,
-							unusedparams = true,
-							unusedwrite = true,
-							useany = true,
-						},
+						-- analyses = {
+						-- 	nilness = true,
+						-- 	unusedparams = true,
+						-- 	unusedwrite = true,
+						-- 	useany = true,
+						-- },
 						usePlaceholders = true,
-						completeUnimported = true,
+						completeUnimported = false,
 						staticcheck = true,
-						directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+						directoryFilters = {
+							"-.git",
+							"-.vscode",
+							"-.idea",
+							"-.vscode-test",
+							"-node_modules",
+							"-bazel-bin",
+							"-bazel-out",
+							"-bazel-testlogs",
+							"-bazel-universe",
+						},
 						semanticTokens = true,
 					},
 				},
@@ -248,6 +259,8 @@ return {
 				},
 			},
 			dockerls = {},
+
+			jsonnet_ls = {},
 
 			lua_ls = {
 				-- cmd = {...},
@@ -309,6 +322,15 @@ return {
 			server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 			require("lspconfig")[server_name].setup(server)
 		end
+
+		require("lspconfig").ts_ls.setup({
+			on_new_config = function(config, root_dir)
+				if not config.cmd_env then
+					config.cmd_env = {}
+				end
+				config.cmd_env.NODE_OPTIONS = "--max-old-space-size=4096"
+			end,
+		})
 
 		-- require("mason-lspconfig").setup({
 		-- 	handlers = {
