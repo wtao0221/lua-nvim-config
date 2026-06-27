@@ -193,54 +193,54 @@ return {
 					clangdFileStatus = true,
 				},
 			},
-			gopls = {
-				cmd = { "gopls" },
-				settings = {
-					gopls = {
-						["formatting.gofumpt"] = true,
-						["formatting.local"] = "databricks",
-						codelenses = {
-							gc_details = false,
-							regenerate_cgo = false,
-							generate = false,
-							test = false,
-							tidy = false,
-							upgrade_dependency = false,
-							vendor = false,
-						},
-						hints = {
-							assignVariableTypes = true,
-							compositeLiteralFields = true,
-							compositeLiteralTypes = true,
-							constantValues = true,
-							functionTypeParameters = true,
-							parameterNames = true,
-							rangeVariableTypes = true,
-						},
-						-- analyses = {
-						-- 	nilness = true,
-						-- 	unusedparams = true,
-						-- 	unusedwrite = true,
-						-- 	useany = true,
-						-- },
-						usePlaceholders = true,
-						completeUnimported = false,
-						staticcheck = true,
-						directoryFilters = {
-							"-.git",
-							"-.vscode",
-							"-.idea",
-							"-.vscode-test",
-							"-node_modules",
-							"-bazel-bin",
-							"-bazel-out",
-							"-bazel-testlogs",
-							"-bazel-universe",
-						},
-						semanticTokens = true,
-					},
-				},
-			},
+			-- gopls = {
+			-- 	cmd = { "gopls" },
+			-- 	settings = {
+			-- 		gopls = {
+			-- 			["formatting.gofumpt"] = true,
+			-- 			["formatting.local"] = "databricks",
+			-- 			codelenses = {
+			-- 				gc_details = false,
+			-- 				regenerate_cgo = false,
+			-- 				generate = false,
+			-- 				test = false,
+			-- 				tidy = false,
+			-- 				upgrade_dependency = false,
+			-- 				vendor = false,
+			-- 			},
+			-- 			hints = {
+			-- 				assignVariableTypes = true,
+			-- 				compositeLiteralFields = true,
+			-- 				compositeLiteralTypes = true,
+			-- 				constantValues = true,
+			-- 				functionTypeParameters = true,
+			-- 				parameterNames = true,
+			-- 				rangeVariableTypes = true,
+			-- 			},
+			-- 			-- analyses = {
+			-- 			-- 	nilness = true,
+			-- 			-- 	unusedparams = true,
+			-- 			-- 	unusedwrite = true,
+			-- 			-- 	useany = true,
+			-- 			-- },
+			-- 			usePlaceholders = true,
+			-- 			completeUnimported = false,
+			-- 			staticcheck = true,
+			-- 			directoryFilters = {
+			-- 				"-.git",
+			-- 				"-.vscode",
+			-- 				"-.idea",
+			-- 				"-.vscode-test",
+			-- 				"-node_modules",
+			-- 				"-bazel-bin",
+			-- 				"-bazel-out",
+			-- 				"-bazel-testlogs",
+			-- 				"-bazel-universe",
+			-- 			},
+			-- 			semanticTokens = true,
+			-- 		},
+			-- 	},
+			-- },
 			-- pyright = {},
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			pylsp = {
@@ -259,9 +259,9 @@ return {
 					},
 				},
 			},
-			dockerls = {},
+			-- dockerls = {},
 
-			jsonnet_ls = {},
+			-- jsonnet_ls = {},
 
 			lua_ls = {
 				-- cmd = {...},
@@ -288,10 +288,10 @@ return {
 				},
 			},
 
-			verible = {
-				cmd = { "verible-verilog-ls" },
-				filetypes = { "systemverilog", "verilog" },
-			},
+			-- verible = {
+			-- 	cmd = { "verible-verilog-ls" },
+			-- 	filetypes = { "systemverilog", "verilog" },
+			-- },
 		}
 
 		-- Ensure the servers and tools above are installed
