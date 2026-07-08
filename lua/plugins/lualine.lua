@@ -1,5 +1,4 @@
-return {
-	"nvim-lualine/lualine.nvim",
+require("lualine").setup({
 	config = function()
 		local mode = {
 			"mode",
@@ -83,4 +82,4 @@ return {
 			extensions = { "fugitive" },
 		})
 	end,
-}
+})

@@ -23,12 +23,7 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to prev tab
 
--- copilot
-keymap.set("i", "<C-A>", "copilot#Accept('<CR>')", { expr = true, replace_keycodes = false })
-keymap.set("i", "<C-Z>", "<Plug>(copilot-dismiss)")
-keymap.set("i", "<C-O>", "<Plug>(copilot-suggest)")
-keymap.set("i", "<C-H>", "<Plug>(copilot-next)")
-keymap.set("i", "<C-L>", "<Plug>(copilot-previous)")
+keymap.set("n", "<leader>e", "<Cmd>Neotree<CR>")
 
 -- inlay_hint toggle
 keymap.set("n", "<leader>i", function()

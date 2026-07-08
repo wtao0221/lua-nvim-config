@@ -1,0 +1,9 @@
+## Dependencies
+
+```bash
+
+sudo apt install -y build-essential pkg-config clang libclang-dev
+sudo apt install -y ripgrep
+sudo apt install nodejs npm
+
+```
