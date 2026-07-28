@@ -24,6 +24,7 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to prev tab
 
 keymap.set("n", "<leader>e", "<Cmd>Neotree<CR>")
+keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show diagnostics" })
 
 -- inlay_hint toggle
 keymap.set("n", "<leader>i", function()
