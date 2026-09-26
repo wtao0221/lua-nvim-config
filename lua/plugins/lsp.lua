@@ -27,5 +27,21 @@ vim.lsp.enable({
 	"lua_ls",
 	"rust_analyzer",
 	"pyright",
-	"clang",
+	"clangd",
+})
+
+vim.lsp.config("clangd", {
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		"--completion-style=detailed",
+		"--header-insertion=never",
+	},
+	filetypes = { "c", "cpp" },
+	root_markers = {
+		"compile_commands.json",
+		".clangd",
+		".git",
+	},
 })

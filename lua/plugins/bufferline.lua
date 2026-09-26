@@ -4,7 +4,7 @@ require("bufferline").setup({
 		themable = true,
 		numbers = "none",
 
-		close_command = "Bdelete! %d",
+		close_command = "bdelete! %d",
 
 		buffer_close_icon = "✗",
 		close_icon = "✗",
@@ -68,6 +68,6 @@ vim.keymap.set("n", "<leader>$", "<cmd>BufferLineGoToBuffer -1<CR>", {
 	desc = "Go to last buffer",
 })
 
-vim.keymap.set("n", "<leader>bc", "<cmd>Bdelete<CR>", {
+vim.keymap.set("n", "<leader>bc", "<cmd>bdelete<CR>", {
 	desc = "Close current buffer",
 })
